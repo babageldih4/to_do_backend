@@ -100,3 +100,11 @@ exportObject.tokenChecker = async (req, res, next) => {
 module.exports = exportObject;
 
 // { "username": "testuser", "password": "password", "email": "test@example.com" }
+
+/*
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI1OTEyODMwLCJleHAiOjE3MjYxNzIwMzB9.dPvQmnTUYQ7pHNuHm5ExyxfqEUruu5L1qZUgiSNiYoI"
+}
+
+*/
