@@ -23,11 +23,11 @@ app.use(cors({ credentials: true, origin: '*' }));
 
 const userRoutes = require('./routes/userRoutes');
 const listRoutes = require('./routes/listRoutes');
-// const taskRoutes = require('./routes/taskRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 
 app.use('/api/v1/users', userRoutes);
 
-// app.use('/api/v1/tasks', taskRoutes);
+app.use('/api/v1/tasks', taskRoutes);
 app.use('/api/v1/lists', listRoutes);
 app.all('*', (req, res) => {
   res

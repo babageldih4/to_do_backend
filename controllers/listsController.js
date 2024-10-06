@@ -29,7 +29,7 @@ exportObject.getLists = async (req, res, next) => {
 exportObject.createNewList = async (req, res, next) => {
   const { title, completed, listUuid } = req.body;
   if (!title) {
-    next(new AppError('Text is required', 400));
+    next(new AppError('title is required', 400));
     return;
   }
   try {
@@ -81,7 +81,7 @@ exportObject.deleteList = async (req, res, next) => {
     if (result.rowCount === 0) {
       next(new AppError('Task not found', 404));
     } else {
-      res.json({ status: 'success', message: 'Task deleted' });
+      res.json({ status: 'success', message: 'List deleted' });
     }
   } catch (err) {
     next(new AppError(err.message, 500));
@@ -92,13 +92,14 @@ exportObject.getOneList = async (req, res, next) => {
   const { uuid } = req.params;
   console.log(req.params);
   console.log('uuid for getList: ', uuid);
+
   if (!uuid) {
     next(new AppError('UUID is required', 400));
     return;
   }
 
   try {
-    const result = await pool.query('SELECT * FROM lists WHERE uuid = $2 AND user_id = $9', [uuid, req._userId]);
+    const result = await pool.query('SELECT * FROM lists WHERE uuid = $1 AND user_id = $2', [uuid, req._userId]);
 
     if (result.rowCount === 0) {
       next(new AppError('List not found', 404));
@@ -106,6 +107,20 @@ exportObject.getOneList = async (req, res, next) => {
       res.json(result.rows[0]);
     }
     console.log('result: ', result);
+  } catch (err) {
+    next(new AppError(err.message, 500));
+  }
+};
+
+exportObject.getTasksofOneList = async (req, res, next) => {
+  const { uuid } = req.params;
+  if (!uuid) {
+    next(new AppError('UUID is required', 400));
+    return;
+  }
+
+  try {
+    const result = await pool.query('SELECT * FROM lists WHERE uuid = $1', [uuid]);
   } catch (err) {
     next(new AppError(err.message, 500));
   }

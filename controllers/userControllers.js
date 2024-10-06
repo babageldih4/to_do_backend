@@ -104,7 +104,7 @@ module.exports = exportObject;
 /*
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI1OTEyODMwLCJleHAiOjE3MjYxNzIwMzB9.dPvQmnTUYQ7pHNuHm5ExyxfqEUruu5L1qZUgiSNiYoI"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI3MzYxMzg5LCJleHAiOjE3Mjc2MjA1ODl9.d_iFjxXRtbGPBpvdgkgIbSfVR1aj66odtrmJ_TTHtVg"
 }
 
 */
