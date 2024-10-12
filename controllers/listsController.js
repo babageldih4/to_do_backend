@@ -25,7 +25,6 @@ exportObject.getLists = async (req, res, next) => {
   }
 };
 
-// Function to create a new task
 exportObject.createNewList = async (req, res, next) => {
   const { title, completed, listUuid } = req.body;
   if (!title) {
@@ -44,7 +43,6 @@ exportObject.createNewList = async (req, res, next) => {
   }
 };
 
-// Function to update a task
 exportObject.updateList = async (req, res, next) => {
   const { title, completed, listUuid } = req.body;
   const { uuid } = req.params;
@@ -58,14 +56,13 @@ exportObject.updateList = async (req, res, next) => {
     if (result.rowCount === 0) {
       next(new AppError('Task not found', 404));
     } else {
-      res.json({ status: 'success', message: 'Task updated' });
+      res.json({ status: 'success', message: 'List updated' });
     }
   } catch (err) {
     next(new AppError(err.message, 500));
   }
 };
 
-// Function to delete a task
 exportObject.deleteList = async (req, res, next) => {
   const { uuid } = req.params;
   if (!uuid) {

@@ -5,4 +5,6 @@ const { tokenChecker } = require('../controllers/userControllers');
 
 routes.get('/', tokenChecker, controllers.getTasks);
 routes.post('/', tokenChecker, controllers.createTask);
+routes.put('/:uuid', tokenChecker, controllers.updateTask);
+routes.delete('/:uuid', tokenChecker, controllers.deleteTask);
 module.exports = routes;
